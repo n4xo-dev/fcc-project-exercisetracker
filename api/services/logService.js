@@ -33,3 +33,12 @@ export function get(_id, from, to, limit){
     log,
   }
 }
+
+export function list() {
+  const entries = logs.entries();
+  const res = [];
+  for(const entry of entries) {
+    res.push({ _id: entry[0], eId: entry[1] });
+  }
+  return res;
+}

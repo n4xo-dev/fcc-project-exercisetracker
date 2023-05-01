@@ -24,3 +24,12 @@ export function create(_id, description, duration, date) {
     logs.set(_id, foundLog.concat(eId));
   return {_id, usename: foundUser, description, duration, date};
 }
+
+export function list() {
+  const entries = exercises.entries();
+  const res = [];
+  for (const entry of entries) {
+    res.push({ eId: entry[0], exercise: entry[1] });
+  }
+  return res;
+}
