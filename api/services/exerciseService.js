@@ -14,7 +14,7 @@ export function create(_id, description, duration, date) {
   const eId = description + duration + date;
   const foundExercise = exercises.get(eId);
   if (foundExercise)
-    return foundExercise;
+    return {_id, username: foundUser, ...foundExercise};
   exercises.set(eId, {
     description,
     duration,
@@ -25,7 +25,7 @@ export function create(_id, description, duration, date) {
     logs.set(_id, [eId]);
   else
     logs.set(_id, foundLog.concat(eId));
-  return {_id, usename: foundUser, description, duration, date};
+  return {_id, username: foundUser, description, duration, date};
 }
 
 export function list() {

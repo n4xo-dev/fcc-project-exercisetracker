@@ -27,9 +27,9 @@ export function get(_id, from, to, limit){
   }
   const log = foundExercises.slice(0, limit);
   return {
+    _id,
     username: foundUser,
     count,
-    _id,
     log,
   }
 }
