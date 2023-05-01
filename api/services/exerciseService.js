@@ -5,9 +5,12 @@ import { logs } from "../store.js";
 export function create(_id, description, duration, date) {
   date = date || Date.now();
   date = new Date(date).toDateString()
+  duration = Number(duration)
   const foundUser = users.get(_id);
   if (!foundUser)
     throw new Error("User doesn't exist");
+  if (duration === NaN)
+    throw new Error('Invalid duration');
   const eId = description + duration + date;
   const foundExercise = exercises.get(eId);
   if (foundExercise)
