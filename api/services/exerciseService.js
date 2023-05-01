@@ -1,6 +1,7 @@
 import { exercises } from "../store.js";
 import { users } from "../store.js";
 import { logs } from "../store.js";
+import { v4 as uuid } from 'uuid';
 
 export function create(_id, description, duration, date) {
   date = date || Date.now();
@@ -11,7 +12,7 @@ export function create(_id, description, duration, date) {
     throw new Error("User doesn't exist");
   if (duration === NaN)
     throw new Error('Invalid duration');
-  const eId = description + duration + date;
+  const eId = uuid();
   const foundExercise = exercises.get(eId);
   if (foundExercise)
     return {_id, username: foundUser, ...foundExercise};
