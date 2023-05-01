@@ -3,7 +3,7 @@ import { users } from "../store.js";
 import { logs } from "../store.js";
 
 export function create(_id, description, duration, date) {
-  date = date ?? Date.now();
+  date = date || Date.now();
   date = new Date(date).toDateString()
   const foundUser = users.get(_id);
   if (!foundUser)

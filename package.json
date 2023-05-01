@@ -2,9 +2,9 @@
 	"name": "fcc-exercise-tracker",
 	"version": "0.1.0",
 	"description": "A REST API project, part of Free Code Camp's curriculum",
-	"main": "index.js",
+	"main": "api/index.js",
 	"scripts": {
-		"start": "node index.js"
+		"start": "node api/index.js"
 	},
 	"dependencies": {
 		"cors": "^2.8.5",
